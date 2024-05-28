@@ -9,7 +9,7 @@ try {
   const data = jsYaml.load(fileContents);
   const environmentVariables = data.resources.fcDemo.props.environmentVariables;
   const {SECRET_KEY, API_KEY, CHATBOT_URL, TOKEN_URL} = environmentVariables;
-  console.log(`SECRET_KEY=${SECRET_KEY}`, `API_KEY=${API_KEY}`, `CHATBOT_URL=${CHATBOT_URL}`, `TOKEN_URL=${TOKEN_URL}`, ' node ./index.js');
+  fs.writeFileSync('./dev_start.sh',`SECRET_KEY=${SECRET_KEY} API_KEY=${API_KEY} CHATBOT_URL=${CHATBOT_URL} TOKEN_URL=${TOKEN_URL} node ./index.js`);
 } catch (err) {
   console.error('解析 YAML 时出错:', err);
 }

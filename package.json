@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./index.js",
-    "dev": "node makeScript.js > dev_start.sh && sh dev_start.sh"
+    "dev": "node makeScript.js && sh dev_start.sh"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
