@@ -30,23 +30,27 @@ async function getAccessToken() {
 async function chat(query) {
     const token = await getAccessToken();
     const requestUrl = `${process.env.CHATBOT_URL}?access_token=${token}`;
-    const chatRequest = {
-        messages: [
-            {
-                role: 'user',
-                content: query
-            }
-        ]
-    };
-    const response = await fetch(requestUrl, {  
-        method: 'POST',  
-        headers: {  
-            'Content-Type': 'application/json'  
-        },
-        body: JSON.stringify(chatRequest)
-    });
-    let result = await response.json();
-    return result.result;
+    try {
+        const chatRequest = {
+            messages: [
+                {
+                    role: 'user',
+                    content: query
+                }
+            ]
+        };
+        const response = await fetch(requestUrl, {  
+            method: 'POST',  
+            headers: {  
+                'Content-Type': 'application/json'  
+            },
+            body: JSON.stringify(chatRequest)
+        });
+        let result = await response.json();
+        return result.result;
+    } catch (err) {
+        return err.message;
+    }
 }
 
 function init() {

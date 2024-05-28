@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "dev": "node makeScript.js > dev_start.sh && sh dev_start.sh"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -11,6 +12,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "js-yaml": "^4.1.0",
     "morgan": "~1.9.1"
   }
 }
